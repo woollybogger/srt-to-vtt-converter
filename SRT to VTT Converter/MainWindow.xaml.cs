@@ -211,8 +211,8 @@ namespace SRT_to_VTT_Converter
 
 		private void Convert(string sFilePath)
 		{
-			using (var strReader = new StreamReader(sFilePath))
-			using (var strWriter = new StreamWriter(sFilePath.Replace(".srt", ".vtt")))
+			using (var strReader = new StreamReader(sFilePath, Encoding.GetEncoding(1256)))
+			using (var strWriter = new StreamWriter(sFilePath.Replace(".srt", ".vtt"), true))
 			{
 				var rgxDialogNumber = new Regex(@"^\d+$");
 				var rgxTimeFrame = new Regex(@"(\d\d:\d\d:\d\d,\d\d\d) --> (\d\d:\d\d:\d\d,\d\d\d)");
